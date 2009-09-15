@@ -9,8 +9,15 @@ describe "ghostbuster" do
       puts hola
     end    
   end
+
+  it "should say hola" do
+    Person.instance_methods.
+      include?('speak').should be_false
+  end
+  
   
   it "should find the ghost class" do
-    @spaniard.ghostbuster.instance_methods.include? :speak
+    @spaniard.ghostbuster.instance_methods.
+      include?('speak').should be_true    
   end
 end
